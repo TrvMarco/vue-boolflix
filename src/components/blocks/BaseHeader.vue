@@ -2,7 +2,7 @@
   <header class="container-fluid">  
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Cerca un titolo" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="dataShare.searchInputValue">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="getApiResponse(), dataShare.apiResponse"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="getApiResponse()"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
   </header>
 </template>
@@ -16,7 +16,6 @@ export default {
     data(){
         return{
             dataShare,
-            apiResponse: [],
         }
     },
     methods:{
@@ -28,8 +27,7 @@ export default {
                 }
             })
             .then((response)=> {
-                this.apiResponse = response.data.results
-                console.log(response.data.results)
+                this.dataShare.apiResponse = response.data.results
             })
             .catch((error)=> {
                 console.log(error);
