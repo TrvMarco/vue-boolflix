@@ -34,8 +34,30 @@ export default {
                         element.original_language = "jp"
                     }
                 });
-                this.dataShare.apiResponse = response.data.results
+                this.dataShare.apiResponseMovie = response.data.results
 
+            })
+            .catch((error)=> {
+                console.log(error);
+            })
+
+            axios.get('https://api.themoviedb.org/3/search/tv', {
+                params: {
+                    api_key: 'b12c3d5dea05d54fe7ab668775bb5103',
+                    query: this.dataShare.searchInputValue,
+                    language: 'it-IT',
+                }
+            })
+            .then((response)=> {
+                response.data.results.forEach(element => {
+                    if(element.original_language == "en"){
+                        element.original_language = "gb"
+                    }else if(element.original_language == "ja"){
+                        element.original_language = "jp"
+                    }
+                });
+                this.dataShare.apiResponseSeries = response.data.results
+                console.log(this.dataShare.apiResponseSeries)
             })
             .catch((error)=> {
                 console.log(error);

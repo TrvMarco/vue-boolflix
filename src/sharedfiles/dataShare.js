@@ -2,5 +2,6 @@ import Vue from 'vue';
 
 export default Vue.observable({
     searchInputValue: '',
-    apiResponse: [],
+    apiResponseMovie: [],
+    apiResponseSeries: [],
 })
