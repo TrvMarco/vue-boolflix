@@ -9,7 +9,9 @@
                         <img v-else class="img-fluid" :src="`https://image.tmdb.org/t/p/w780${cover.poster_path}`" alt="">
                         <p>{{cover.title}}</p>
                         <p>{{cover.original_title}}</p>
-                        <p>{{cover.original_language}}</p>
+                        <span v-for="i in cover.vote_average" :key="i">
+                            <i class="fa-solid fa-star"></i>
+                        </span>
                         <p>{{cover.vote_average}}</p>
                         <flag :iso="cover.original_language" /> 
                     </div>
@@ -23,7 +25,6 @@
                         <img v-else class="img-fluid" :src="`https://image.tmdb.org/t/p/w780${cover.poster_path}`" alt="">
                         <p>{{cover.name}}</p>
                         <p>{{cover.original_name}}</p>
-                        <p>{{cover.original_language}}</p>
                         <p>{{cover.vote_average}}</p>
                         <flag :iso="cover.original_language" /> 
                     </div>

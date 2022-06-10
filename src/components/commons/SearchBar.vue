@@ -34,6 +34,10 @@ export default {
                         element.original_language = "jp"
                     }
                 });
+
+                response.data.results.forEach(element => {
+                    element.vote_average = Math.round(element.vote_average)
+                })
                 this.dataShare.apiResponseMovie = response.data.results
 
             })
@@ -57,11 +61,12 @@ export default {
                     }
                 });
                 this.dataShare.apiResponseSeries = response.data.results
-                console.log(this.dataShare.apiResponseSeries)
             })
             .catch((error)=> {
                 console.log(error);
             })
+
+            this.dataShare.searchInputValue = ""
         }
     } 
 }
