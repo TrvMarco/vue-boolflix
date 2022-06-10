@@ -8,6 +8,7 @@
                         <p>{{cover.original_title}}</p>
                         <p>{{cover.original_language}}</p>
                         <p>{{cover.vote_average}}</p>
+                        <flag :iso="cover.original_language" /> 
                     </div>
                 </div>
             </div>
