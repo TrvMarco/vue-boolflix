@@ -59,6 +59,11 @@ export default {
                     }else if(element.original_language == "ja"){
                         element.original_language = "jp"
                     }
+
+                    response.data.results.forEach(element => {
+                    element.vote_average = Math.ceil(element.vote_average / 2)
+                    })
+                    this.dataShare.apiResponseMovie = response.data.results
                 });
                 this.dataShare.apiResponseSeries = response.data.results
             })
