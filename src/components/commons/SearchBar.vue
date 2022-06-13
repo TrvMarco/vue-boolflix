@@ -36,7 +36,7 @@ export default {
                 });
 
                 response.data.results.forEach(element => {
-                    element.vote_average = Math.round(element.vote_average)
+                    element.vote_average = Math.ceil(element.vote_average / 2)
                 })
                 this.dataShare.apiResponseMovie = response.data.results
 
@@ -74,7 +74,7 @@ export default {
 
 <style lang="scss" scoped>
     .search-bar{
-            width: 20%;
+            width: 250px;
             align-self: flex-start;
             align-self: center;
     }
