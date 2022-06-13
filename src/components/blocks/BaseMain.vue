@@ -9,15 +9,8 @@
             </div>
             <div class="row">
                 <h2 class="text-uppercase font-weight-bold">BoolFlix series</h2>
-                <div class="col-12 col-md-4 col-lg-2" v-for="(cover,index) in dataShare.apiResponseSeries" :key="index">
-                    <div class="prova-card p-2">
-                        <img v-if="cover.poster_path == null" class="img-fluid" src="https://www.macitynet.it/wp-content/uploads/2016/06/Netflix740.jpg" alt="">
-                        <img v-else class="img-fluid" :src="`https://image.tmdb.org/t/p/w185${cover.poster_path}`" alt="">
-                        <p>{{cover.name}}</p>
-                        <p>{{cover.original_name}}</p>
-                        <p>{{cover.vote_average}}</p>
-                        <flag :iso="cover.original_language" /> 
-                    </div>
+                <div class="col-12 col-md-4 col-lg-2" v-for="(scover,index) in dataShare.apiResponseSeries" :key="index">
+                    <SerieCard :serieCover="scover"/>
                 </div>
             </div>
         </div>
@@ -27,16 +20,19 @@
 <script>
 import dataShare from '../../sharedfiles/dataShare';
 import MovieCard from '../../components/commons/MovieCard'
+import SerieCard from '../../components/commons/SerieCard'
 
 export default {
     name: 'BaseMain',
     components: {
-        MovieCard
+        MovieCard,
+        SerieCard
     },
     data(){
         return{
             dataShare, 
-            cover: {}
+            cover: {},
+            serieCover: {}
         }
     }
 }
