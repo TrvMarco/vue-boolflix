@@ -2,17 +2,17 @@
     <main>
         <div class="container">
             <div class="row g-2">
-                <h1>Film:</h1>
-                <div class="col-12-4 col-md-4 col-lg-2" v-for="(cover,index) in dataShare.apiResponseMovie" :key="index">
+                <h2 class="text-uppercase font-weight-bold">BoolFlix films</h2>
+                <div class="col-6 col-md-4 col-lg-2" v-for="(cover,index) in dataShare.apiResponseMovie" :key="index">
                     <MovieCard :cover="cover"/>
                 </div>
             </div>
             <div class="row">
-                <h1>Serie Tv:</h1>
+                <h2 class="text-uppercase font-weight-bold">BoolFlix series</h2>
                 <div class="col-12 col-md-4 col-lg-2" v-for="(cover,index) in dataShare.apiResponseSeries" :key="index">
                     <div class="prova-card p-2">
                         <img v-if="cover.poster_path == null" class="img-fluid" src="https://www.macitynet.it/wp-content/uploads/2016/06/Netflix740.jpg" alt="">
-                        <img v-else class="img-fluid" :src="`https://image.tmdb.org/t/p/w780${cover.poster_path}`" alt="">
+                        <img v-else class="img-fluid" :src="`https://image.tmdb.org/t/p/w185${cover.poster_path}`" alt="">
                         <p>{{cover.name}}</p>
                         <p>{{cover.original_name}}</p>
                         <p>{{cover.vote_average}}</p>
@@ -44,7 +44,8 @@ export default {
 
 <style lang="scss" scoped>
     main{
-        background-color: #A9A9A9;
+        background-color: #272727;
         min-height: calc(100vh - 80px);
+        color: #fff;
     }
 </style>
