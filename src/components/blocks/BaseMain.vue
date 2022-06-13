@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
 import dataShare from '../../sharedfiles/dataShare';
 import MovieCard from '../../components/commons/MovieCard'
 import SerieCard from '../../components/commons/SerieCard'
